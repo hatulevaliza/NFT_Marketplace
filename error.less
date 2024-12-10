@@ -1,0 +1,234 @@
+@accent : #A259FF;
+@background:#2B2B2B;
+@light-gray:#3B3B3B;
+@gray-text:#858584;
+@white:#ffffff;
+
+.flex-column(@gap){
+    display: flex;
+    flex-direction: column;
+    gap: @gap;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.flex-row(@gap){
+    display: flex;
+    flex-direction: row;
+    gap:@gap;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+body{
+    background-color: @background;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.container{
+    max-width: 1050px;
+    margin: auto;
+}
+ul, p, h2  {
+    margin: 0;
+    color: @white;
+    font-family: Work Sans;
+}
+h2{
+    font-size: 51px;
+}
+.space-mono{
+    font-family: space mono;
+}
+.tiny{
+    font-size: 12px;
+    font-family: Space mono;
+    color: @gray-text;
+}
+.button-full{  
+    border: none;
+    background-color: @accent;
+    border-radius: 20px;
+    color: @white;
+    font-family: Work Sans;
+    font-weight: 600;
+}
+.button-empty{
+    border: 1px solid @accent;
+    background-color: @background;
+    border-radius: 20px;
+    color: @white;
+    font-family: Work Sans;
+    font-weight: 600;
+}
+.button-div(@width){
+    margin:@width;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    font-weight: 600;
+}
+
+header{
+    padding: 20px 50px;
+    .flex-row;
+    justify-content: space-between;
+    align-items: center;
+    color: @white;
+    .logo{
+        .flex-row(15px);
+        align-items: center;
+    }
+    .list{
+        .flex-row(33px);
+        align-items: center;
+        ul{
+            list-style-type: none;
+            align-items: center;
+            .flex-row(53px);
+            li{
+                .flex-row(12px);
+                img{
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+        }
+        button{                                 
+            .button-full;
+            div{
+            .button-div(20px 30px);
+            }
+        }
+    }
+}
+
+
+
+.sixth-section {
+    background-image: url('imgs/NFT_Highlight.png');
+    background-size: cover; 
+    background-position: center;  
+    height: 100vh;
+    width: 100%; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &::before {
+        content: ""; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit; 
+        filter: blur(8px); 
+        z-index: -1;
+    }
+
+    .error-container {
+        text-align: center;
+        position: relative;
+        padding: 100px;
+
+        .error-code {
+            font-size: 400px; 
+            color: #ffffff;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70%; 
+            overflow: hidden;
+
+            &::after {
+                content: "404";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('imgs/NFT_Highlight.png') no-repeat center;
+                background-size: cover; 
+                transform: translateY(100%);
+                animation: fill 2s forwards; 
+            }
+        }
+
+        .error-message {
+            font-size: 24px;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+    }
+}
+
+@keyframes fill {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 1024px) {
+    .burger {
+      display: none;
+    }}
+
+  @media (max-width: 1024px) {
+    header .list ul {
+      display: none;
+    }
+  
+    header .list button {
+      display: none;
+    }
+  
+    header {
+      padding: 20px 1vw;
+      justify-content: space-between;
+    }
+  
+    .burger {
+     display: block;
+    }
+  }
+  
+  @media (max-width: 1024px) {}
+  
+  @media (max-width: 992px) {
+    .sixth-section .error-container {
+      padding:80px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+  
+    .sixth-section .error-container {
+      padding:40px;
+    }
+    .sixth-section .error-container .error-code {
+      font-size: 200px;
+      height: 70%;
+      overflow: hidden;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .sixth-section .error-container .error-code {
+      font-size: 100px;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+
+
